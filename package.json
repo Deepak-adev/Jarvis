@@ -1,0 +1,11 @@
+{
+  "name": "jarvis-platform",
+  "version": "1.0.0",
+  "description": "J.A.R.V.I.S. — Justified Analysis, Reasoning & Visualization of Incident Systems",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
+    "test": "npm --prefix frontend run test"
+  }
+}

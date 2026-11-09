@@ -1,0 +1,51 @@
+[
+  {
+    "event_id": "cust-001",
+    "timestamp": "2026-11-09T12:00:00Z",
+    "service": "database",
+    "event_type": "resource_saturation",
+    "severity": "critical",
+    "message": "Custom Ingest: PostgreSQL shared buffer hit cache evictions exceeding 95%",
+    "correlation_id": "cust-batch-101",
+    "metric_name": "cache_hit_ratio",
+    "metric_value": 0.05,
+    "attributes": { "buffer_pool_mb": 16384, "dirty_pages": 4200 }
+  },
+  {
+    "event_id": "cust-002",
+    "timestamp": "2026-11-09T12:00:05Z",
+    "service": "transaction-service",
+    "event_type": "service_timeout",
+    "severity": "error",
+    "message": "Custom Ingest: Balance verification query took 4200ms (> SLA 50ms)",
+    "correlation_id": "cust-batch-101",
+    "metric_name": "query_latency_ms",
+    "metric_value": 4200.0,
+    "attributes": { "query": "SELECT balance FROM user_ledgers WHERE user_id = ?" }
+  },
+  {
+    "event_id": "cust-003",
+    "timestamp": "2026-11-09T12:00:10Z",
+    "service": "payment-service",
+    "event_type": "error_spike",
+    "severity": "critical",
+    "message": "Custom Ingest: Payment checkout processor aborted 120 checkout requests",
+    "correlation_id": "cust-batch-101",
+    "metric_name": "aborted_rate",
+    "metric_value": 0.62,
+    "attributes": { "reason": "TRANSACTION_ENGINE_UNAVAILABLE" }
+  },
+  {
+    "event_id": "cust-004",
+    "timestamp": "2026-11-09T12:00:15Z",
+    "service": "api-gateway",
+    "event_type": "error_spike",
+    "severity": "critical",
+    "message": "Custom Ingest: Public checkout endpoint returning 503 Service Unavailable",
+    "correlation_id": "cust-batch-101",
+    "metric_name": "http_503_count",
+    "metric_value": 310.0,
+    "attributes": { "route": "/api/v1/checkout", "client_ip_count": 280 }
+  }
+]
+
